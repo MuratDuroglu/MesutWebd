@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="kahve2020Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="hakkimizda">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="foto" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="baslik" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="ustbaslik" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="icerik" Type="text" Nullable="false" />
+  </EntityType>
+  <EntityType Name="kullanicilar">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="kad" Type="char" MaxLength="50" Nullable="false" />
+    <Property Name="sifre" Type="char" MaxLength="50" Nullable="false" />
+    <Property Name="rol" Type="tinyint" />
+  </EntityType>
+  <EntityType Name="urunler">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="foto" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="baslik" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="ustbaslik" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="icerik" Type="text" Nullable="false" />
+    <Property Name="aktif" Type="tinyint" />
+    <Property Name="sira" Type="int" />
+  </EntityType>
+  <EntityContainer Name="kahve2020ModelStoreContainer">
+    <EntitySet Name="hakkimizda" EntityType="Self.hakkimizda" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="kullanicilar" EntityType="Self.kullanicilar" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="urunler" EntityType="Self.urunler" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

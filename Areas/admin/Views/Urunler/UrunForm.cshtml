@@ -1,0 +1,76 @@
+﻿@model MesutWebd.Models.urunler
+@{
+    ViewBag.Title = "Ürünler";
+    Layout = "~/Areas/admin/Views/Shared/_Layoutadmin.cshtml";
+}
+
+<div class="content-wrapper">
+    <div class="container">
+
+        <h2>Ürünler Form Sayfası</h2>
+        @using (Html.BeginForm("Kaydet", "Urunler", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+        {<table class="table table-bordered">
+                <tr>
+                    <td>Foto</td>
+                    <td>
+                        @if (Model.foto != null)
+                        {<img src="~/Content/img/@Model.foto" width="250" />
+                        }
+                        @Html.TextBoxFor(m => m.fotofile, new { type = "file" })
+                    </td>
+                </tr>
+                <tr>
+                    <td>ÜstBaşlık</td>
+                    <td>
+                        @Html.TextBoxFor(m => m.ustbaslik, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.ustbaslik)
+                    </td>
+
+                </tr>
+                <tr>
+                    <td>Başlık</td>
+                    <td>
+                        @Html.TextBoxFor(m => m.baslik, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.baslik)
+                    </td>
+
+                </tr>
+                <tr>
+                    <td>İçerik</td>
+                    <td>
+                        @Html.TextAreaFor(m => m.icerik, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.icerik)
+                    </td>
+                </tr>
+                <tr>
+                    <td>Sıra</td>
+                    <td>
+                        @Html.TextBoxFor(m => m.sira, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.sira)
+                    </td>
+
+                </tr>
+
+                <tr>
+                    <td></td>
+                    <td>
+                        @*<label>< @Html.CheckBoxFor(m => m.aktif)Aktif mi?</label>*@
+
+                    </td>
+
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        @Html.HiddenFor(m => m.foto)
+                        @Html.HiddenFor(m => m.id)
+                        <input type="submit" value="Kaydet" class="btn btn-success" />
+                    </td>
+                </tr>
+
+            </table>
+
+        }
+    </div>
+</div>
+
